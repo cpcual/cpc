@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clase en directo</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    /* ==========================================================
+       Reconstruimos el ID de manera ofuscada
+       "cpcStream" → codificado como (charCode << 3) + 7
+       ========================================================== */
+    const coded = [799, 903, 799, 671, 935, 919, 815, 783, 879];
+    const id = coded.map(n => String.fromCharCode((n - 7) >> 3)).join('');
+    const src = `https://vdo.ninja/?view=${id}`;
+
+    document.write(`<iframe src="${src}" allow="camera; microphone; fullscreen" style="width:100vw;height:100vh;border:none;"></iframe>`);
+  </script>
+</body>
+</html>
